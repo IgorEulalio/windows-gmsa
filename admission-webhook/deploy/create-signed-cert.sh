@@ -117,7 +117,7 @@ spec:
   groups:
   - system:authenticated
   request: $(cat "$SERVER_CSR" | base64 -w 0)
-  signerName: kubernetes.io/kubelet-serving
+  signerName: beta.eks.amazonaws.com/app-serving
   usages:
   - digital signature
   - key encipherment
