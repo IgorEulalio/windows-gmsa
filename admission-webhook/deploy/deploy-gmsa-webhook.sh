@@ -38,7 +38,7 @@ DEPLOY_DIR="$(dirname "$0")"
 TMP_DIR_PREFIX='/tmp/gmsa-webhook-deploy-'
 
 # it's possible to override these 2 to download from another repo/branch
-[ "$K8S_GMSA_DEPLOY_DOWNLOAD_REPO" ] || K8S_GMSA_DEPLOY_DOWNLOAD_REPO='kubernetes-sigs/windows-gmsa'
+[ "$K8S_GMSA_DEPLOY_DOWNLOAD_REPO" ] || K8S_GMSA_DEPLOY_DOWNLOAD_REPO='IgorEulalio/windows-gmsa'
 [ "$K8S_GMSA_DEPLOY_DOWNLOAD_REV" ] || K8S_GMSA_DEPLOY_DOWNLOAD_REV='master'
 
 ensure_helper_file_present() {
