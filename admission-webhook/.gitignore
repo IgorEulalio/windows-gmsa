@@ -1,3 +1,5 @@
 /dev/
 /integration_tests/tmp/
 /vendor/
+/deploy/gmsa-webhook-certs/*
+/deploy/webhook-manifests.yml
