@@ -107,6 +107,10 @@ if ! $DRY_RUN && $KUBECTL get csr "$CSR_NAME" &> /dev/null; then
     $KUBECTL delete csr "$CSR_NAME"
 fi
 
+echo $SERVER_CSR
+
+cat $SERVER_CSR | base64 
+
 # create server cert/key CSR and send to k8s API
 CSR_CONTENTS=$(cat <<EOF
 apiVersion: certificates.k8s.io/v1
@@ -116,7 +120,7 @@ metadata:
 spec:
   groups:
   - system:authenticated
-  request: $(cat "$SERVER_CSR" | base64 -w 0)
+  request: $(cat "$SERVER_CSR" | base64)
   signerName: beta.eks.amazonaws.com/app-serving
   usages:
   - digital signature

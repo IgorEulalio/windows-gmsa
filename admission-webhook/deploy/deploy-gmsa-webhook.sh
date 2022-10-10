@@ -151,7 +151,7 @@ main() {
     # the TLS certificate might not have been generated yet if it's a dry run
     local TLS_CERTIFICATE
     if [ -r "$SERVER_CERT" ]; then
-        TLS_CERTIFICATE=$(cat "$SERVER_CERT" | base64 -w 0)
+        TLS_CERTIFICATE=$(cat "$SERVER_CERT" | base64)
     elif $DRY_RUN; then
         TLS_CERTIFICATE='TBD'
     else
@@ -182,7 +182,7 @@ main() {
         fatal_error "Not able to determine CA bundle for depoloyment"
     fi
 
-    TLS_PRIVATE_KEY=$(cat "$SERVER_KEY" | base64 -w 0) \
+    TLS_PRIVATE_KEY=$(cat "$SERVER_KEY" | base64) \
         TLS_CERTIFICATE="$TLS_CERTIFICATE" \
         CA_BUNDLE="$BUNDLE" \
         RBAC_ROLE_NAME="$NAMESPACE-$NAME-rbac-role" \
