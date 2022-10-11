@@ -145,6 +145,6 @@ if ! $DRY_RUN; then
     }
     SERVER_CERT_CONTENTS=$(wait_for verify_cert_signed "after approving CSR $CSR_NAME, the signed certificate did not appear on the resource")
 
-    gen_server_cert() { echo "$SERVER_CERT_CONTENTS" | openssl base64 -w 0 -d -A -out "$SERVER_CERT"; }
+    gen_server_cert() { echo "$SERVER_CERT_CONTENTS" | openssl base64 -d -A -out "$SERVER_CERT"; }
     gen_file gen_server_cert "$SERVER_CERT"
 fi
